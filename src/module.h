@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
@@ -15,15 +16,14 @@ extern "C" {
 #include "LuaBridge/RefCountedObject.h"
 
 enum PathAction {
-    APPEND = 0,
-    PREPEND,
-    REMOVE
-};
-
-enum PathExists {
     LEAVE = 0,
     UPDATE
 };
+
+int set(const char*, const char*);
+int append_path(const char*, const char*);
+int prepend_path(const char*, const char*);
+int remove_path(const char*, const char*);
 
 //typedef void (*path_action_dt)(void);
 //static path_action_dt exec_action[] = {

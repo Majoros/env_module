@@ -11,8 +11,7 @@
 --a = io.read("*number")        -- read a number
 --print(fact(a))
 
-local m = M ()
-m:set('key', 'val')
-m:append_path('PATH', '/some/randome/path')
-m:prepend_path('PATH', '/some/randome/path')
-m:remove_path('PATH', '/some/randome/path')
+M.set('key', 'val')
+--m:append_path('PATH', '/some/randome/path')
+--m:prepend_path('PATH', '/some/randome/path')
+--m:remove_path('PATH', '/some/randome/path')
