@@ -11,9 +11,9 @@ int main(int argc, char *argv[]) {
         .beginNamespace ("M")
             //.addProperty ("delim", &M::get_delim, &M::set_delim) //FIXME
             .addFunction ("set", set)
-            //.addFunction ("append_path", &M::append_path)
-            //.addFunction ("prepend_path", &M::prepend_path)
-            //.addFunction ("remove_path", &M::remove_path)
+            .addFunction ("append_path", append_path)
+            .addFunction ("prepend_path", prepend_path)
+            .addFunction ("remove_path", remove_path)
         .endNamespace ();
 
     error = luaL_loadfile(L, argv[1])||

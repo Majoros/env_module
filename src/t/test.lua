@@ -12,6 +12,5 @@
 --print(fact(a))
 
 M.set('key', 'val')
---m:append_path('PATH', '/some/randome/path')
---m:prepend_path('PATH', '/some/randome/path')
---m:remove_path('PATH', '/some/randome/path')
+M.prepend_path('PATH', '/usr/local/bin')
+M.append_path('PATH', '/usr/local/bin')
