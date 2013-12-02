@@ -6,7 +6,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <vector>
+#include <map>
 #include <string>
+#include <regex>
+#include <sys/utsname.h>
 
 extern "C" {
 #include "lua.h"
@@ -28,11 +31,14 @@ enum PathAction {
     PREPEND
 };
 
-
-int set(const char*, const char*);
-int append_path(const char*, const char*);
-int prepend_path(const char*, const char*);
-int remove_path(const char*, const char*);
+enum SysInfoType {
+    SYSNAME = 0,
+    NODENAME,
+    RELEASE,
+    VERSION,
+    MACHINE,
+    DOMAINNAME
+};
 
 
 //typedef void (*path_action_dt)(void);

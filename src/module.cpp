@@ -1,4 +1,5 @@
 #include "module.h"
+#include "lua_class.h"
 
 int main(int argc, char *argv[]) {
 
@@ -8,13 +9,16 @@ int main(int argc, char *argv[]) {
 
 	using namespace luabridge;
     getGlobalNamespace (L)
-        .beginNamespace ("M")
-            //.addProperty ("delim", &M::get_delim, &M::set_delim) //FIXME
-            .addFunction ("set", set)
-            .addFunction ("append_path", append_path)
-            .addFunction ("prepend_path", prepend_path)
-            .addFunction ("remove_path", remove_path)
-        .endNamespace ();
+        .beginClass <M> ("M")
+            .addConstructor <void (*) (void)> ()
+            .addFunction ("set", &M::set)
+            .addFunction ("unset", &M::unset)
+            .addFunction ("append_path", &M::append_path)
+            .addFunction ("prepend_path", &M::prepend_path)
+            .addFunction ("remove_path", &M::remove_path)
+            .addFunction ("is_loaded", &M::is_loaded)
+            .addFunction ("sysinfo", &M::sysinfo)
+        .endClass ();
 
     error = luaL_loadfile(L, argv[1])||
             lua_pcall(L, 0, LUA_MULTRET, 0);;

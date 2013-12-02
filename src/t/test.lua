@@ -11,6 +11,10 @@
 --a = io.read("*number")        -- read a number
 --print(fact(a))
 
-M.set('key', 'val')
-M.prepend_path('PATH', '/usr/local/bin')
-M.append_path('PATH', '/usr/local/bin')
+local m = M()
+m:set('key', 'val')
+m:is_loaded("this,is,a,test")
+m:prepend_path('PATH', '/usr/local/bin')
+m:append_path('PATH', '/usr/local/bin')
+print(m:sysinfo('SYSNAME'))
+print(m:sysinfo('MACHINE'))
